@@ -104,4 +104,4 @@ dist
 .tern-port
 
 # Bot Authentication Configuration
-.config/auth.json
+config/auth.json

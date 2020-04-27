@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
-const config = require('./config.json');
+const auth = require('.config/auth.json');
+const config = require('./config/config.json');
 const client = new Discord.Client();
 const botName = 'GuildDiscordBot';
 
@@ -166,4 +167,4 @@ function aboutEmbed()
 	return { embed: aboutEmbed };
 }
 
-client.login(config.token);
+client.login(auth.token);

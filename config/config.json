@@ -1,0 +1,52 @@
+{
+	"prefix": "!gdb",
+	"token": "NzA0MDQwNjY2NTIyNTgzMTYw.XqXaqg.f0d6FkH_qTQZhoK0DOD27px5k0M",
+	"classes": ["warrior", "rogue", "mage", "priest", "druid", "paladin", "shaman", "warlock", "hunter"],
+	"commands": {
+		"help": [
+			{
+				"name": "!gdb commands",
+				"value": "Displays all commands the bot can offer."
+			}
+		],
+		"about": [
+			{
+				"name": "!gdb about",
+				"value": "Learn about the bot, its author and how to help support."
+			}
+		],
+		"professions": [
+			{
+				"name": "!gdb enchant [enchant]",
+				"value": "Displays information about the enchant and who can craft it in the guild."
+			},
+			{
+				"name": "!gdb armor [armor]",
+				"value": "Displays information about the armor and who can craft it in the guild."
+			},
+			{
+				"name": "!gdb potion [potion]",
+				"value": "Displays information about the potion and who can craft it in the guild."
+			}
+		],
+		"classes": [
+			{
+				"name": "!gdb [class] [bis list/rotation/consumes]",
+				"value": "Displays information about a given classes bis list, most common rotation or most common consumes for the class."
+			}
+		]
+	},
+	"enchant": {
+		"cloak": [
+			{
+				"name": "lesser agi",
+				"description": "Permanently enchant a cloak to give 3 Agility.",
+				"value": "Burris"
+			}
+		],
+		"chest": [],
+		"wrist": [],
+		"gloves": [],
+		"boots": []
+	}
+}

@@ -1,10 +1,8 @@
 const Discord = require('discord.js');
-const auth = require('.config/auth.json');
+const auth = require('./config/auth.json');
 const config = require('./config/config.json');
 const client = new Discord.Client();
 const botName = 'GuildDiscordBot';
-
-console.log(getCommands());
 
 client.once('ready', () => {
 	console.log('Guild Discord Bot Bot Loaded!');

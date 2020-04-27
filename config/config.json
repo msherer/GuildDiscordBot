@@ -1,6 +1,17 @@
 {
+	"botName": "GuildDiscordBot",
 	"prefix": "!gdb",
 	"classes": ["warrior", "rogue", "mage", "priest", "druid", "paladin", "shaman", "warlock", "hunter"],
+	"commandsList": [
+		"test",
+		"balls",
+		"about",
+		"commands",
+		"enchant",
+		"armor",
+		"potion",
+		"class"
+	],
 	"commands": {
 		"help": [
 			{

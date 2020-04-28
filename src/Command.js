@@ -1,6 +1,8 @@
 class Command
 {
 	dependencies = [];
+    commandAliases = [];
+    commandName = null;
 
 	initialize(dependencyMap)
 	{
@@ -21,7 +23,10 @@ class Command
             let command = tokens[0].substr(1).toLowerCase();
 
             try {
-                this.processMessage(message, tokens);
+
+                if (command === this.commandName || this.commandAliases.includes(command)) {
+                    this.processMessage(message, tokens);
+                }
             } catch(error) {
                 message.channel.send(error);
             }

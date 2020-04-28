@@ -17,7 +17,11 @@ class Command
         }
 
         this.dependencies.discordClient.on('message', message => {
-            console.log('here');
+            messageText = message.content;
+            if (messageText.substr(0, 1) !== this.commandPrefix) return;
+            tokens = message.content.split(' ');
+            command = tokens[0].substr(1).toLowerCase();
+            this.processMessage(message, tokens);
         });
 	}
 }

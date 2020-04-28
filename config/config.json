@@ -3,7 +3,7 @@
 	"prefix": "!gdb",
 	"classes": ["warrior", "rogue", "mage", "priest", "druid", "paladin", "shaman", "warlock", "hunter"],
 	"commandsList": [
-		"test",
+		"Test",
 		"balls",
 		"about",
 		"commands",

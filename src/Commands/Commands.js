@@ -16,25 +16,42 @@ class Commands extends Command
 
 	getCommands()
 	{
+		const deps = this.dependencies;
+		const config = deps.config;
+		const nodes = [];
 		var embeds = [];
 
-		Object.keys(config.commands).forEach(function (key) {
-			var label = key.toUpperCase();
-			var nodes = [];
+		try {
+			Object.keys(this.dependencies.config.commands).forEach(function (key) {
+				var label = key.toUpperCase();
+				var nodes = [];
 
-			config.commands[key].forEach(node => {
-				nodes.push(node);
+				try {
+					config.commands[key].forEach(node => {
+						nodes.push(node);
+					});
+				} catch (error) {
+					console.log(error);
+				}
+
+				// embeds.push(this.generateEmbed(label, key, nodes));
 			});
+		} catch (error) {
+			console.log(error);
+		}
 
-			embeds.push(this.generateEmbed(label, key, nodes));
-		});
+		try {
+			embeds.push(this.generateEmbed('LABEL', 'label', nodes));
+		} catch (error) {
+			console.log(error);
+		}
 
 		return embeds;
 	}
 
 	generateEmbed(label, key, nodes)
 	{
-		const embed = new Discord.MessageEmbed()
+		const embed = new this.dependencies.Discord.MessageEmbed()
 			.setColor('#0x0099ff')
 			.setTitle(label + ' | GDB')
 			.setURL('https://discord.js.org')

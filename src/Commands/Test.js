@@ -4,7 +4,7 @@ class Test extends Command
 {
 	processMessage(message, tokens)
 	{
-		return message.channel.send(`Test response: ${user.username}`);
+		return message.channel.send(`Test response: ${message.author.username}`);
 	}
 }
 

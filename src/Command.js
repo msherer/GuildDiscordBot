@@ -16,12 +16,22 @@ class Command
 
         this.dependencies.discordClient.on('message', message => {
             let messageText = message.content;
-            if (messageText.substr(0, 1) !== this.commandPrefix) return;
+            if (messageText.substr(0, 4) !== this.dependencies.prefix) return;
             let tokens = message.content.split(' ');
             let command = tokens[0].substr(1).toLowerCase();
-            this.processMessage(message, tokens);
+
+            try {
+                this.processMessage(message, tokens);
+            } catch(error) {
+                message.channel.send(error);
+            }
         });
 	}
+
+    processMessage(message, tokens)
+    {
+
+    }
 }
 
 module.exports = Command;

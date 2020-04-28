@@ -6,8 +6,6 @@ class Command
 	{
 		this.dependencies = dependencyMap;
 
-        // this.dependencies.discord.message.send('here');
-
         for (let dependency in this.dependencies) {
             if (!this.dependencies.hasOwnProperty(dependency)) {
                 throw "Failed to locate dependency: " + dependency;
@@ -17,10 +15,10 @@ class Command
         }
 
         this.dependencies.discordClient.on('message', message => {
-            messageText = message.content;
+            let messageText = message.content;
             if (messageText.substr(0, 1) !== this.commandPrefix) return;
-            tokens = message.content.split(' ');
-            command = tokens[0].substr(1).toLowerCase();
+            let tokens = message.content.split(' ');
+            let command = tokens[0].substr(1).toLowerCase();
             this.processMessage(message, tokens);
         });
 	}

@@ -13,11 +13,14 @@ const dependencyMap = {
 };
 
 for (const key in config.commandsList) {
-	console.log(config.commandsList[key]);
 	const command = new (require(`./src/Commands/${config.commandsList[key]}`));
 	command.initialize(dependencyMap);
 	commandContainer.add(config.commandsList[key], command);
 }
+
+client.on('ready', () => {
+    console.log('Guild Discord Bot Bot Loaded!');
+});
 
 // client.once('ready', () => {
 // 	console.log('Guild Discord Bot Bot Loaded!');

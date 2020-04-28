@@ -2,9 +2,9 @@ const Command = require('../Command');
 
 class Test extends Command
 {
-	commandName = 'test';
+	commandName = 'Test';
 
-	commandAliases = [];
+	commandAliases = ['test'];
 
 	processMessage(message, tokens)
 	{

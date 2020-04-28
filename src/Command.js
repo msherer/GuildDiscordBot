@@ -20,7 +20,7 @@ class Command
             let messageText = message.content;
             if (messageText.substr(0, 4) !== this.dependencies.prefix) return;
             let tokens = message.content.split(' ');
-            let command = tokens[0].substr(1).toLowerCase();
+            let command = tokens[1].toLowerCase();
 
             try {
 

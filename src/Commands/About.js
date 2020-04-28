@@ -8,7 +8,11 @@ class About extends Command
 
 	processMessage(message, tokens)
 	{
-		return message.channel.send(this.aboutEmbed());
+		try {
+			return message.channel.send(this.aboutEmbed());
+		} catch (error) {
+			message.channel.send(error);
+		}
 	}
 
 	aboutEmbed()

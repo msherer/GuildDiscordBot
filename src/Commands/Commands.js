@@ -14,7 +14,7 @@ class Commands extends Command
 		});
 	}
 
-	function getCommands()
+	getCommands()
 	{
 		var embeds = [];
 
@@ -32,7 +32,7 @@ class Commands extends Command
 		return embeds;
 	}
 
-	function generateEmbed(label, key, nodes)
+	generateEmbed(label, key, nodes)
 	{
 		const embed = new Discord.MessageEmbed()
 			.setColor('#0x0099ff')

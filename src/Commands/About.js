@@ -11,7 +11,7 @@ class About extends Command
 		return message.channel.send(this.aboutEmbed());
 	}
 
-	function aboutEmbed()
+	aboutEmbed()
 	{
 		var aboutEmbed = {
 			color: 0x0099ff,

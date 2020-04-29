@@ -24,7 +24,6 @@ class Commands extends Command
 		try {
 			Object.keys(this.dependencies.config.commands).forEach(function (key) {
 				var label = key.toUpperCase();
-				var nodes = [];
 
 				try {
 					config.commands[key].forEach(node => {
@@ -34,14 +33,8 @@ class Commands extends Command
 					console.log(error);
 				}
 
-				// embeds.push(this.generateEmbed(label, key, nodes));
-			});
-		} catch (error) {
-			console.log(error);
-		}
-
-		try {
-			embeds.push(this.generateEmbed('LABEL', 'label', nodes));
+				embeds.push(this.generateEmbed(label, key, nodes));
+			}.bind(this));
 		} catch (error) {
 			console.log(error);
 		}

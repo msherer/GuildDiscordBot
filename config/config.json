@@ -10,7 +10,8 @@
 		"Enchant",
 		"Armor",
 		"Potion",
-		"Class"
+		"Class",
+		"Roster"
 	],
 	"commands": {
 		"help": [
@@ -58,5 +59,19 @@
 		"wrist": [],
 		"gloves": [],
 		"boots": []
-	}
+	},
+	"roster": [
+		{
+			"name": "Burris",
+			"rank": "CR1",
+			"class": "Druid",
+			"spec": "Feral"
+		},
+		{
+			"name": "Remei",
+			"rank": "CR1",
+			"class": "Warrior",
+			"spec": "Fury/Prot"
+		}
+	]
 }

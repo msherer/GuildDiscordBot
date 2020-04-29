@@ -28,7 +28,9 @@ class Command
                     this.processMessage(message, tokens);
                 }
             } catch(error) {
-                message.channel.send(error);
+                console.log(error);
+                var err = 'An error occurred when trying to run your command, please have an administrator check the logs or try again';
+                message.channel.send(err);
             }
         });
 	}

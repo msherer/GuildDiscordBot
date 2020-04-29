@@ -8,36 +8,35 @@ class Roster extends Command
 
 	processMessage(message, tokens)
 	{
-		var header = {
+		const header = {
 			"name": "name",
 			"rank": "rank",
 			"class": "class",
 			"spec": "spec"
 		};
-		var roster = this.dependencies.config.roster;
-		var colWidth = 20;
+		const roster = this.dependencies.config.roster;
+		roster.unshift(header);
+		
+		const colWidth = 20;
 		var topRow = '';
 		var dataRow = '';
-		var separator = '+';
-		var hChar = '-';
-		var vChar = '|';
-		var space = ' ';
-		var columns = Object.keys(roster[0]).length;
+		const separator = '+';
+		const hChar = '-';
+		const vChar = '|';
+		const space = ' ';
+		const columns = Object.keys(header).length;
 		var rows = [];
-
-		roster.unshift(header);
-
-		for (isp = 0; isp < columns; isp++) {
+		var rt = '';
+		for (var isp = 0; isp < columns; isp++) {
 			topRow += separator + hChar.repeat(colWidth);
-			
-			if (isp === columns - 1) {
-		        topRow += separator;
-		        rows.push(topRow);
+			if (isp == (columns - 1)) {
+			    topRow += separator;
+			    rt += topRow + "\n";
 			}
 		}
-
-		for (isv = 0; isv < roster.length; isv++) {
-		    for (isk = 0; isk < Object.keys(roster[isv]).length; isk++) {
+		
+		for (var isv = 0; isv < roster.length; isv++) {
+		    for (var isk = 0; isk < Object.keys(roster[isv]).length; isk++) {
 		        
 		        if (isk === 0) dataRow += vChar;
 		        
@@ -46,7 +45,7 @@ class Roster extends Command
 		        var spacers = (colWidth - roster[isv][rKey].length) / 2;
 		        var lSpace = spacers;
 		        var rSpace = Math.round(spacers);
-		        
+
 		        dataRow += space.repeat(lSpace) + roster[isv][rKey] + space.repeat(rSpace);
 		        
 		        if (isk < columns - 1) dataRow += vChar;
@@ -55,13 +54,19 @@ class Roster extends Command
 		            dataRow += vChar;
 		            rows.push(dataRow);
 		            rows.push(topRow);
+			    rt += dataRow + "\n" + topRow + "\n";
 		            dataRow = '';
 		        }
 		    }
 		}
 
-		for (isj = 0; isj < rows.length; isj++) {
-		    console.log(rows[isj]);
+		try {
+			if (rt instanceof String || typeof rt === 'string') {
+				console.log(rt);
+				message.channel.send("```\n" + rt + "\n```");
+			}
+		} catch (error) {
+			console.log(error);
 		}
 	}
 }

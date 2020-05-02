@@ -1,0 +1,34 @@
+{
+  "enchant": [
+    {
+      "crusader": [
+        "Burris"
+      ]
+    },
+    {
+      "healing power": [
+        "Burris"
+      ]
+    }
+  ],
+  "potion": [
+    {
+      "wisdom": [
+        "Bjutters"
+      ]
+    },
+    {
+      "mongoose": [
+        "Bjutters",
+        "Lightbulb"
+      ]
+    }
+  ],
+  "armor": [
+    {
+      "bloodsoul shoulers": [
+        "Remei"
+      ]
+    }
+  ]
+}

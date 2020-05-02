@@ -18,8 +18,8 @@ class Commands extends Command
 	{
 		const deps = this.dependencies;
 		const config = deps.config;
-		const nodes = [];
-		var embeds = [];
+		let nodes = [];
+		let embeds = [];
 
 		try {
 			Object.keys(this.dependencies.config.commands).forEach(function (key) {
@@ -34,6 +34,7 @@ class Commands extends Command
 				}
 
 				embeds.push(this.generateEmbed(label, key, nodes));
+				nodes = [];
 			}.bind(this));
 		} catch (error) {
 			console.log(error);

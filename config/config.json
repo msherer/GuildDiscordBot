@@ -11,7 +11,8 @@
 		"Armor",
 		"Potion",
 		"Class",
-		"Roster"
+		"Roster",
+		"Craft"
 	],
 	"commands": {
 		"help": [

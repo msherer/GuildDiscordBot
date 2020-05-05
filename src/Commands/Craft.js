@@ -42,17 +42,19 @@ class Craft extends Command {
                                 console.log("----------------");
                                 console.log("RECIPIES:");
                                 console.log(recipes);
-                                recipes.forEach(recipe => {
-                                    if (recipe[n]) {
-                                        console.log("----------------");
-                                        console.log("RECIPE:");
-                                        console.log(recipe);
-                                        console.log("----------------");
-                                        console.log(recipe[n]);
-                                        console.log("----------------");
-                                        crafters += recipe[n] + " ";
-                                    }
-                                });
+                                if (recipes.length) {
+                                    recipes.forEach(recipe => {
+                                        if (recipe[n]) {
+                                            console.log("----------------");
+                                            console.log("RECIPE:");
+                                            console.log(recipe);
+                                            console.log("----------------");
+                                            console.log(recipe[n]);
+                                            console.log("----------------");
+                                            crafters += recipe[n] + " ";
+                                        }
+                                    });
+                                }
 
                                 var craft = results[key].name
                                     + "\nCrafters: " + crafters.trim();

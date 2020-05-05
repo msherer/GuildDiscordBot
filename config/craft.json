@@ -1,7 +1,7 @@
 {
-  "enchant": [
+  "formula": [
     {
-      "crusader": [
+      "Formula: Enchant Weapon - Crusader": [
         "Burris"
       ]
     },
@@ -11,7 +11,7 @@
       ]
     }
   ],
-  "potion": [
+  "recipe": [
     {
       "wisdom": [
         "Bjutters"
@@ -24,7 +24,7 @@
       ]
     }
   ],
-  "armor": [
+  "plans": [
     {
       "bloodsoul shoulers": [
         "Remei"

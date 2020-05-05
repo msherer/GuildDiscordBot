@@ -9,7 +9,7 @@ class Craft extends Command {
 
     processMessage(message, tokens) {
         console.log(crafterConfig);
-        const keywords = ['Formula', 'Plans', 'Recipe'];
+        const keywords = ['Formula', 'Plans', 'Recipe', 'Pattern'];
         var queryString = this.generateQueryString(tokens);
         const msg = message;
         const options = {

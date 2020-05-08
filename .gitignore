@@ -105,3 +105,6 @@ dist
 
 # Bot Authentication Configuration
 config/auth.json
+
+# Images
+images/*

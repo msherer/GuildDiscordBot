@@ -26,7 +26,10 @@ class About extends Command
 				icon_url: 'https://cdn.discordapp.com/avatars/84456781761228800/6f98cdf438b400196ee4dbc6401d8eef.webp',
 				url: 'https://discord.js.org',
 			},
-			description: 'Guild Discord Bot! A bot to help us stay organized and sane.',
+			description: 'Guild Discord Bot is a bot focused on utility and information to help players access ' +
+				'information that they would normally have to seek in-game or through a third party resource. This bot ' +
+				'is solely owned and maintained by Remei. Suggestions for new features and constructive criticism are ' +
+				'always welcome!',
 			thumbnail: {
 				url: 'https://i.imgur.com/ln8fPTL.png',
 			},

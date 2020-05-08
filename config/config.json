@@ -12,7 +12,8 @@
 		"Potion",
 		"Class",
 		"Roster",
-		"Craft"
+		"Craft",
+		"Dpscheck"
 	],
 	"commands": {
 		"help": [
@@ -29,16 +30,8 @@
 		],
 		"professions": [
 			{
-				"name": "!gdb enchant [enchant]",
-				"value": "Displays information about the enchant and who can craft it in the guild."
-			},
-			{
-				"name": "!gdb armor [armor]",
-				"value": "Displays information about the armor and who can craft it in the guild."
-			},
-			{
-				"name": "!gdb potion [potion]",
-				"value": "Displays information about the potion and who can craft it in the guild."
+				"name": "!gdb craft [item]",
+				"value": "Displays information about the item and who can craft it in the guild."
 			}
 		],
 		"classes": [
@@ -296,5 +289,279 @@
 			"class": "Warlock",
 			"spec": "??"
 		}
-	]
+	],
+	"logs": {
+		"types": [
+			{
+				"name": "tps",
+				"id": "threat"
+			},
+			{
+				"name": "dps",
+				"id": "damage-done"
+			},
+			{
+				"name": "hps",
+				"id": "healing"
+			}
+		],
+		"raids": [
+			"mc",
+			"bwl",
+			"zg",
+			"aq20",
+			"aq40",
+			"naxx"
+		],
+		"bosses": [
+			{
+				"name": "Lucifron",
+				"id": "8"
+			},
+			{
+				"name": "Magmadar",
+				"id": "10"
+			},
+			{
+				"name": "Gehennas",
+				"id": "16"
+			},
+			{
+				"name": "Garr",
+				"id": "22"
+			},
+			{
+				"name": "Baron Geddon",
+				"id": "31"
+			},
+			{
+				"name": "Shazzrah",
+				"id": "35"
+			},
+			{
+				"name": "Sulfuron Harbinger",
+				"id": "46"
+			},
+			{
+				"name": "Golemagg the Incinerator",
+				"id": "51"
+			},
+			{
+				"name": "Majordomo Executus",
+				"id": "53"
+			},
+			{
+				"name": "Ragnaros",
+				"id": "last"
+			},
+			{
+				"name": "Razorgore the Untamed",
+				"id": "7"
+			},
+			{
+				"name": "Vaelastrasz the Corrupt",
+				"id": "9"
+			},
+			{
+				"name": "Broodlord Lashlayer",
+				"id": "18"
+			},
+			{
+				"name": "Firemaw",
+				"id": "23"
+			},
+			{
+				"name": "Ebonroc",
+				"id": "31"
+			},
+			{
+				"name": "Flamegor",
+				"id": "32"
+			},
+			{
+				"name": "Chromaggus",
+				"id": "34"
+			},
+			{
+				"name": "Nefarian",
+				"id": "last"
+			},
+			{
+				"name": "High Priest Venoxis",
+				"id": "19"
+			},
+			{
+				"name": "High Priestess Jeklik",
+				"id": "12"
+			},
+			{
+				"name": "High Priestess Marli",
+				"id": "26"
+			},
+			{
+				"name": "High Priest Thekal",
+				"id": "10"
+			},
+			{
+				"name": "High Priestess Arlokk",
+				"id": "14"
+			},
+			{
+				"name": "Bloodlord Mandokir",
+				"id": "5"
+			},
+			{
+				"name": "Jindo the Hexxer",
+				"id": "23"
+			},
+			{
+				"name": "Hakkar",
+				"id": "last"
+			},
+			{
+				"name": "Gahzranka",
+				"id": "last"
+			},
+			{
+				"name": "Kurinnaxx",
+				"id": ""
+			},
+			{
+				"name": "General Rajaxx",
+				"id": ""
+			},
+			{
+				"name": "Ossirian the Unscarred",
+				"id": ""
+			},
+			{
+				"name": "Moam",
+				"id": ""
+			},
+			{
+				"name": "Buru the Gorger",
+				"id": ""
+			},
+			{
+				"name": "Ayamiss the Hunter",
+				"id": ""
+			},
+			{
+				"name": "The Prophet Skeram",
+				"id": ""
+			},
+			{
+				"name": "Bug Trio",
+				"id": ""
+			},
+			{
+				"name": "Battleguard Sartura",
+				"id": ""
+			},
+			{
+				"name": "Fankriss the Unyielding",
+				"id": ""
+			},
+			{
+				"name": "Viscidus",
+				"id": ""
+			},
+			{
+				"name": "Princess Huhuran",
+				"id": ""
+			},
+			{
+				"name": "Twin Emperors",
+				"id": ""
+			},
+			{
+				"name": "Ouro",
+				"id": ""
+			},
+			{
+				"name": "C'Thun",
+				"id": ""
+			},
+			{
+				"name": "Cthun",
+				"id": ""
+			},
+			{
+				"name": "Anub'Rekhan ",
+				"id": ""
+			},
+			{
+				"name": "Grand Widow Faerlina ",
+				"id": ""
+			},
+			{
+				"name": "Maexxna ",
+				"id": ""
+			},
+			{
+				"name": "The Plague Quarter ",
+				"id": ""
+			},
+			{
+				"name": "Noth the Plaguebringer ",
+				"id": ""
+			},
+			{
+				"name": "Heigan the Unclean ",
+				"id": ""
+			},
+			{
+				"name": "Loatheb ",
+				"id": ""
+			},
+			{
+				"name": "The Military Quarter ",
+				"id": ""
+			},
+			{
+				"name": "Instructor Razuvious ",
+				"id": ""
+			},
+			{
+				"name": "Gothik the Harvester ",
+				"id": ""
+			},
+			{
+				"name": "The Four Horsemen ",
+				"id": ""
+			},
+			{
+				"name": "The Construct Quarter ",
+				"id": ""
+			},
+			{
+				"name": "Patchwerk ",
+				"id": ""
+			},
+			{
+				"name": "Grobbulus ",
+				"id": ""
+			},
+			{
+				"name": "Gluth ",
+				"id": ""
+			},
+			{
+				"name": "Thaddius ",
+				"id": ""
+			},
+			{
+				"name": "Frostwyrm Lair ",
+				"id": ""
+			},
+			{
+				"name": "Sapphiron ",
+				"id": ""
+			},
+			{
+				"name": "Kel'Thuzad",
+				"id": ""
+			}
+		]
+	}
 }

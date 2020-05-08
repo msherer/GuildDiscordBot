@@ -2,7 +2,7 @@ const Command = require('../Command');
 const puppeteer = require('puppeteer');
 const fs = require('fs');
 
-class Dpscheck extends Command
+class Logs extends Command
 {
     commandName = 'Dpscheck';
 
@@ -130,4 +130,4 @@ class Dpscheck extends Command
     }
 }
 
-module.exports = Dpscheck;
+module.exports = Logs;

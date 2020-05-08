@@ -73,7 +73,10 @@ class Craft extends Command {
                                             deviceScaleFactor: 1,
                                         });
                                         await page.setDefaultNavigationTimeout(0);
-                                        await page.goto('https://classic.wowhead.com/item=' + results[key].id);
+                                        await page.goto(
+                                            'https://classic.wowhead.com/item=' + results[key].id,
+                                            { "waitUntil": "domcontentloaded" }
+                                        );
 
                                         async function screenshotDOMElement(opts = {}) {
                                             const padding = 'padding' in opts ? opts.padding : 0;

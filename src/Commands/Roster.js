@@ -29,13 +29,16 @@ class Roster extends Command
 		// 1. Generate top row
 		var topRow = this.generateTopRow(columns, colWidth, hChar, separator);
 
-		// 2. Generate header row for page heading
+		// 2. Generate inner row
+		var innerRow = this.generateTopRow(columns, colWidth, space, separator);
+
+		// 3. Generate header row for page heading
 		var headerRow = this.generateHeaderRow(columns, colWidth, vChar, space, separator, header);
 
-		// 3. Gather a page of data (19 records)
-		data = this.generateData(columns, colWidth, roster, vChar, space, 19, topRow);
+		// 4. Gather a page of data (19 records)
+		data = this.generateData(columns, colWidth, roster, vChar, space, 19, topRow, innerRow);
 
-		// 4. Render results to the user
+		// 5. Render results to the user
 		this.render(message, topRow, headerRow, data);
 	}
 
@@ -72,7 +75,7 @@ class Roster extends Command
 		return headerRow;
 	}
 
-	generateData(columns, colWidth, roster, vChar, space, pageSize, topRow)
+	generateData(columns, colWidth, roster, vChar, space, pageSize, topRow, innerRow)
 	{
 		let page = [];
 		let dataRow = '';
@@ -92,7 +95,9 @@ class Roster extends Command
 				
 				if (isk === columns -1) {
 					dataRow += vChar;
-					page.push(dataRow + "\n" + topRow + "\n");
+					console.log(`Iterator: ${isv} | Length: ${roster.length}`)
+					var fillerRow = isv === (roster.length - 1) ? topRow : innerRow;
+					page.push(dataRow + "\n" + fillerRow + "\n");
 					dataRow = '';
 				}
 			}

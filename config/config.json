@@ -13,40 +13,30 @@
 		"Logs"
 	],
 	"commands": {
-		"help": [
+		"commands": [
 			{
 				"name": "!gdb commands",
 				"value": "Displays all commands the bot can offer."
-			}
-		],
-		"about": [
+			},
 			{
 				"name": "!gdb about",
 				"value": "Learn about the bot, its author and how to help support."
-			}
-		],
-		"raiding": [
+			},
 			{
 				"name": "!gdb roster",
 				"value": "Returns a list of everyone in the core raid roster their rank, class and spec."
-			}
-		],
-		"logging": [
+			},
 			{
 				"name": "!gdb [dps/hps/tps] [warcraft log id] [boss|raid]",
 				"value": "Will provide you with Warcraft logs from one of 3 categories. Fuzzy search a boss or raid name to get logs for a specific boss or average for the whole raid."
-			}
-		],
-		"professions": [
+			},
 			{
 				"name": "!gdb craft [item]",
 				"value": "Displays information about the item and who can craft it in the guild."
-			}
-		],
-		"classes": [
+			},
 			{
 				"name": "!gdb [class] [bis list/rotation/consumes]",
-				"value": "Displays information about a given classes bis list, most common rotation or most common consumes for the class."
+				"value": "**NOT YET IMPLEMENTED** Displays information about a given classes bis list, most common rotation or most common consumes for the class."
 			}
 		]
 	},

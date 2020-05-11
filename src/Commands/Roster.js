@@ -14,7 +14,7 @@ class Roster extends Command
 			"class": "class",
 			"spec": "spec"
 		};
-		const roster = this.dependencies.config.roster;
+		const roster = this.dependencies.roster;
 		roster.unshift(header);
 		
 		const colWidth = 20;

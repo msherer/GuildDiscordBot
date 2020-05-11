@@ -1,0 +1,238 @@
+{
+  "roster": [
+    {
+      "name": "Coltenasd",
+      "rank": "Guild Master",
+      "class": "Warlock",
+      "spec": "??"
+    },
+    {
+      "name": "Archy",
+      "rank": "Officer",
+      "class": "Paladin",
+      "spec": "Holy"
+    },
+    {
+      "name": "Homicydal",
+      "rank": "Officer",
+      "class": "Warrior",
+      "spec": "Fury"
+    },
+    {
+      "name": "Brotendo",
+      "rank": "Role Officer",
+      "class": "Warrior",
+      "spec": "Fury"
+    },
+    {
+      "name": "Gasillen",
+      "rank": "Role Officer",
+      "class": "Mage",
+      "spec": "Frost"
+    },
+    {
+      "name": "Geraldina",
+      "rank": "Role Officer",
+      "class": "Priest",
+      "spec": "Holy"
+    },
+    {
+      "name": "Remei",
+      "rank": "Role Officer",
+      "class": "Warrior",
+      "spec": "Fury/Prot"
+    },
+    {
+      "name": "Alondite",
+      "rank": "CR1",
+      "class": "Paladin",
+      "spec": "Retribution"
+    },
+    {
+      "name": "Arckro",
+      "rank": "CR1",
+      "class": "Warrior",
+      "spec": "Fury"
+    },
+    {
+      "name": "Bjutters",
+      "rank": "CR1",
+      "class": "Paladin",
+      "spec": "Holy"
+    },
+    {
+      "name": "Bramstoneaxe",
+      "rank": "CR1",
+      "class": "Hunter",
+      "spec": "Marksman"
+    },
+    {
+      "name": "Burris",
+      "rank": "CR1",
+      "class": "Druid",
+      "spec": "Feral"
+    },
+    {
+      "name": "Com",
+      "rank": "CR1",
+      "class": "Mage",
+      "spec": "Frost"
+    },
+    {
+      "name": "Conall",
+      "rank": "CR1",
+      "class": "Warrior",
+      "spec": "Fury/Prot"
+    },
+    {
+      "name": "Crankd",
+      "rank": "CR1",
+      "class": "Rogue",
+      "spec": "??"
+    },
+    {
+      "name": "Dogreath",
+      "rank": "CR1",
+      "class": "Rogue",
+      "spec": "??"
+    },
+    {
+      "name": "Durna",
+      "rank": "CR1",
+      "class": "Priest",
+      "spec": "Holy"
+    },
+    {
+      "name": "Grimage",
+      "rank": "CR1",
+      "class": "Mage",
+      "spec": "Frost"
+    },
+    {
+      "name": "Hottbox",
+      "rank": "CR1",
+      "class": "Warrior",
+      "spec": "Fury"
+    },
+    {
+      "name": "Ihate",
+      "rank": "CR1",
+      "class": "Warrior",
+      "spec": "Fury"
+    },
+    {
+      "name": "Lightbulb",
+      "rank": "CR1",
+      "class": "Hunter",
+      "spec": "Marksman"
+    },
+    {
+      "name": "Meks",
+      "rank": "CR1",
+      "class": "Mage",
+      "spec": "Frost"
+    },
+    {
+      "name": "Migga",
+      "rank": "CR1",
+      "class": "Mage",
+      "spec": "Frost"
+    },
+    {
+      "name": "Mommysama",
+      "rank": "CR1",
+      "class": "Warrior",
+      "spec": "Fury"
+    },
+    {
+      "name": "Melda",
+      "rank": "CR1",
+      "class": "Hunter",
+      "spec": "Marksman"
+    },
+    {
+      "name": "Peebes",
+      "rank": "CR1",
+      "class": "Mage",
+      "spec": "Frost"
+    },
+    {
+      "name": "Powerbottomz",
+      "rank": "CR1",
+      "class": "Hunter",
+      "spec": "Marksman"
+    },
+    {
+      "name": "Rancidmage",
+      "rank": "CR1",
+      "class": "Mage",
+      "spec": "Frost"
+    },
+    {
+      "name": "Sigarda",
+      "rank": "CR1",
+      "class": "Druid",
+      "spec": "Restoration"
+    },
+    {
+      "name": "Tompeters",
+      "rank": "CR1",
+      "class": "Mage",
+      "spec": "Frost"
+    },
+    {
+      "name": "Ceriously",
+      "rank": "CR2",
+      "class": "Rogue",
+      "spec": "??"
+    },
+    {
+      "name": "Hellsangel",
+      "rank": "CR2",
+      "class": "Druid",
+      "spec": "Restoration"
+    },
+    {
+      "name": "Holysparkler",
+      "rank": "CR2",
+      "class": "Priest",
+      "spec": "Holy"
+    },
+    {
+      "name": "Kareemie",
+      "rank": "CR2",
+      "class": "Hunter",
+      "spec": "Marksman"
+    },
+    {
+      "name": "Quindigenous",
+      "rank": "CR2",
+      "class": "Hunter",
+      "spec": "Marksman"
+    },
+    {
+      "name": "Radagasst",
+      "rank": "CR2",
+      "class": "Mage",
+      "spec": "??"
+    },
+    {
+      "name": "Sandryce",
+      "rank": "CR2",
+      "class": "Paladin",
+      "spec": "Holy"
+    },
+    {
+      "name": "Sedentary",
+      "rank": "CR2",
+      "class": "Rogue",
+      "spec": "??"
+    },
+    {
+      "name": "Tunt",
+      "rank": "CR2",
+      "class": "Warlock",
+      "spec": "??"
+    }
+  ]
+}

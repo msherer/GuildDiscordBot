@@ -28,11 +28,11 @@
 			},
 			{
 				"name": "!gdb [dps/hps/tps] [warcraft log id] [boss|raid]",
-				"value": "Will provide you with Warcraft logs from one of 3 categories. Fuzzy search a boss or raid name to get logs for a specific boss or average for the whole raid."
+				"value": "Will provide you with Warcraft logs from one of 3 categories. Fuzzy search a boss or raid name to get logs for a specific boss or average for the whole raid.\nExample: !gdb dps TWfZAbV8BcF1H3Gv vael"
 			},
 			{
 				"name": "!gdb craft [item]",
-				"value": "Displays information about the item and who can craft it in the guild."
+				"value": "Displays information about the item and who can craft it in the guild.\nExample: !gdb craft crusader"
 			},
 			{
 				"name": "!gdb [class] [bis list/rotation/consumes]",

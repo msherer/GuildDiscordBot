@@ -28,7 +28,6 @@ client.on('ready', () => {
 	client.user.setActivity(
             `${botPrefix} commands | Running on ${client.guilds.cache.size} servers`
 	);
-    console.log(client.guilds.cache.size);
     console.log('Guild Discord Bot Bot Loaded!');
 });
 

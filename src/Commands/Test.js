@@ -8,7 +8,12 @@ class Test extends Command
 
 	processMessage(message, tokens)
 	{
-		return message.channel.send(`Test response: ${message.author.username}`);
+		var user = message.mentions.members.first() || message.author;
+		let embed = new this.dependencies.Discord.MessageEmbed()
+		    .setAuthor(user.username)
+		    .setImage(user.avatarURL())
+		    .setColor('#275BF0');
+		message.channel.send(embed);
 	}
 }
 

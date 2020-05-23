@@ -57,6 +57,10 @@ class Logs extends Command
                     }
                 }
 
+                await page.waitForNavigation({
+                    waitUntil: 'networkidle0',
+                });
+
                 console.log(`Page Url: ${page.url()}`);
                 await page.goto(`${page.url()}&type=${logType.id}`);
                 console.log(`Page Url: ${page.url()}`);

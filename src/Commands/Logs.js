@@ -35,7 +35,7 @@ class Logs extends Command
             }
         });
 
-        imagePath = `images/${reportId}/${bossMatch.id}.png`;
+        imagePath = `images/${reportId}/${reportType}/${bossMatch.id}.png`;
 
         if (!fs.existsSync(imagePath)) {
             (async () => {

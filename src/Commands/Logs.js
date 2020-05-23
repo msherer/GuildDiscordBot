@@ -57,7 +57,7 @@ class Logs extends Command
                         }
 
                         if (targetElements.length === count) {
-                            throw Error(`Boss with name ${term} could not be found in this Warcraftlog.`);
+                            throw Error(`Boss with name "${term}" could not be found in this Warcraftlog.`);
                         }
                     }
                 } catch(e) {

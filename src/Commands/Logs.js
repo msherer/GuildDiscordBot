@@ -83,7 +83,7 @@ class Logs extends Command
                         }, selector);
 
                         var dir = `images/${reportId}/${reportType}`;
-                        if (!fs.existsSync(dir)) { fs.mkdirSync(dir); }
+                        if (!fs.existsSync(dir)) { fs.mkdirSync(dir, { recursive: true }); }
                         if (!rect) { throw Error(`Could not find element that matches selector: ${selector}.`); }
 
                         console.log('Screenshotting image now...');

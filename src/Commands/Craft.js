@@ -9,7 +9,9 @@ class Craft extends Command {
     commandAliases = ['craft'];
 
     processMessage(message, tokens) {
+        const log = this.dependencies.log;
         var queryString = this.generateQueryString(tokens);
+        log.log(message, 'craft', `Query: ${queryString}`);
         let response;
         const msg = message;
         const opts = {
@@ -32,10 +34,12 @@ class Craft extends Command {
                 response = this.getMatchingWithoutImage(matchingResults);
             }
 
-            if (response.files) {
-                msg.channel.send(response.crafters, {files: [response.files]});
-            } else {
-                msg.channel.send(response.crafters);
+            if (response.crafters.length >= 1) {
+                if (response.files) {
+                    msg.channel.send(response.crafters, {files: [response.files]});
+                } else {
+                    msg.channel.send(response.crafters);
+                }
             }
         }, this);
     }
@@ -129,7 +133,7 @@ class Craft extends Command {
                     const padding = 'padding' in opts ? opts.padding : 0;
                     const path = 'path' in opts ? opts.path : null;
                     const selector = opts.selector;
-                    console.log(opts.selector);
+                    console.log(`Selector: ${opts.selector}`);
                     if (!selector)
                         throw Error('Please provide a selector.');
 

@@ -11,11 +11,14 @@ class Logs extends Command
     processMessage(message, tokens)
     {
         // !gdb [tps|hps|dps] [reportId] [boss]
+        const log = this.dependencies.log;
         const reportType = tokens[1];
         const reportId = tokens[2];
         const term = this.generateQueryString(tokens);
         const msg = message;
         let bossMatch, logType, imagePath;
+
+        log.log(message, reportType, `Query: ${term}`);
 
         // Hakkar's ID can also be 56... What do we do?
         // This applies to any boss that comes last in the warcraftlogs they use the
@@ -36,79 +39,78 @@ class Logs extends Command
 
         if (!fs.existsSync(imagePath)) {
             (async () => {
-                const browser = await puppeteer.launch({
-                    //headless: true,
-                    args: ['--no-sandbox']
-                });
-
+                const browser = await puppeteer.launch({args: ['--no-sandbox']});
                 const page = await browser.newPage();
+                await page.setViewport({ width: 2880, height: 1800 });
+                await page.goto(`https://classic.warcraftlogs.com/reports/${reportId}`);
+                const targetElements = await page.$$('.report-overview-boss-text');
+                const chartSelector = logType.id === 'tps' ? '.dialog-block' : '.summary-table';
+                // await page.screenshot({path: `${reportId}-${bossMatch.id}.png`, fullPage: true});
 
-                await page.setViewport({
-                    width: 2880,
-                    height: 1800,
-                    deviceScaleFactor: 1,
-                });
-
-                await page.setDefaultNavigationTimeout(0);
-                await page.goto(`https://classic.warcraftlogs.com/reports/${reportId}/#fight=${bossMatch.id}&type=${logType.id}`);
-
-                async function screenshotDOMElement(opts = {}) {
-                    const padding = 'padding' in opts ? opts.padding : 0;
-                    const path = 'path' in opts ? opts.path : null;
-                    const selector = opts.selector;
-                    console.log(opts.selector);
-
-                    if (!selector)
-                        throw Error('Please provide a selector.');
-
-                    const rect = await page.evaluate(selector => {
-                        const element = document.querySelector(selector);
-
-                        if (!element)
-                            return null;
-
-                        const {x, y, width, height} = element.getBoundingClientRect();
-
-                        return {left: x, top: y, width, height, id: element.id};
-                    }, selector);
-
-                    if (!rect)
-                        throw Error(`Could not find element that matches selector: ${selector}.`);
-
-                    var dir = `images/${reportId}`;
-
-                    if (!fs.existsSync(dir)) {
-                        fs.mkdirSync(dir);
+                for (let target of targetElements) {
+                    const innerHtml = await page.evaluate(el => el.innerHTML, target);
+                    console.log(innerHtml);
+                    if (innerHtml.includes(bossMatch.name)) {
+                        console.log('Clicking on the match!');
+                        await target.click();
+                        break;
                     }
-
-                    console.log('Screenshotting image now...');
-                    return await page.screenshot({
-                        path,
-                        clip: {
-                            x: rect.left - (padding + 55),
-                            y: rect.top - (padding - 10),
-                            width: rect.width + 50 + padding * 2,
-                            height: rect.height - 15 + padding * 2
-                        }
-                    });
                 }
 
-                await screenshotDOMElement({
-                    path: imagePath,
-                    selector: '.summary-table',
-                    id: reportId,
-                    padding: 16
-                });
+                console.log(`Page Url: ${page.url()}`);
+                await page.goto(`${page.url()}&type=${logType.id}`);
+                console.log(`Page Url: ${page.url()}`);
+                await page.waitFor(5000);
 
-                console.log('After screenshot function.');
+                try {
+                    async function screenshotDOMElement(opts = {}) {
+                        const padding = 'padding' in opts ? opts.padding : 0;
+                        const path = 'path' in opts ? opts.path : null;
+                        const selector = opts.selector;
+                        console.log(opts.selector);
 
-                console.log('Closing browser');
-                await browser.close();
+                        if (!selector) { throw Error('Please provide a selector.'); }
 
-                console.log('Returning response.');
+                        const rect = await page.evaluate(selector => {
+                            const element = document.querySelector(selector);
+                            if (!element) { return null; }
+                            const {x, y, width, height} = element.getBoundingClientRect();
+                            return {left: x, top: y, width, height, id: element.id};
+                        }, selector);
+
+                        var dir = `images/${reportId}`;
+                        if (!fs.existsSync(dir)) { fs.mkdirSync(dir); }
+                        if (!rect) { throw Error(`Could not find element that matches selector: ${selector}.`); }
+
+                        console.log('Screenshotting image now...');
+                        return await page.screenshot({
+                            path,
+                            clip: {
+                                x: rect.left - (padding + 55),
+                                y: rect.top - (padding - 10),
+                                width: rect.width + 50 + padding * 2,
+                                height: rect.height - 15 + padding * 2
+                            }
+                        });
+                    }
+
+                    try {
+                        await screenshotDOMElement({
+                            path: imagePath,
+                            selector: chartSelector,
+                            padding: 16
+                        });
+                    } catch (e) {
+                        console.log(`Could not find element that matches selector: ${chartSelector}.`);
+                        await page.screenshot({path: imagePath, fullPage: false});
+                    }
+                } catch (e) {
+                    console.log(e);
+                }
+
                 var res = `Report ID: ${reportId} | Type: ${reportType} | Boss: ${bossMatch.name}`;
                 msg.channel.send(res, {files: [imagePath]});
-                console.log('Response returned.');
+                await browser.close();
             })();
         } else {
             console.log('Returning cached image.');

@@ -20,9 +20,6 @@ class Logs extends Command
 
         log.log(message, reportType, `Query: ${term}`);
 
-        // Hakkar's ID can also be 56... What do we do?
-        // This applies to any boss that comes last in the warcraftlogs they use the
-        // ID of "last" for some reason.
         this.dependencies.config.logs["bosses"].forEach(boss => {
             if (term === boss.name || term.toLowerCase() === boss.name || boss.name.toLowerCase().includes(term)) {
                 bossMatch = boss;
@@ -46,15 +43,27 @@ class Logs extends Command
                 const targetElements = await page.$$('.report-overview-boss-text');
                 const chartSelector = logType.id === 'tps' ? '.dialog-block' : '.summary-table';
                 // await page.screenshot({path: `${reportId}-${bossMatch.id}.png`, fullPage: true});
+                var count = 0;
 
-                for (let target of targetElements) {
-                    const innerHtml = await page.evaluate(el => el.innerHTML, target);
-                    console.log(innerHtml);
-                    if (innerHtml.includes(bossMatch.name)) {
-                        console.log('Clicking on the match!');
-                        await target.click();
-                        break;
+                try {
+                    for (let target of targetElements) {
+                        ++count;
+                        const innerHtml = await page.evaluate(el => el.innerHTML, target);
+                        console.log(innerHtml);
+                        if (innerHtml.includes(bossMatch.name)) {
+                            console.log('Clicking on the match!');
+                            await target.click();
+                            break;
+                        }
+
+                        if (targetElements.length === count) {
+                            throw Error(`Boss with name ${term} could not be found in this Warcraftlog.`);
+                        }
                     }
+                } catch(e) {
+                    console.log(e);
+                    log.log(message, reportType, `Query: ${term}`, e);
+                    return await msg.channel.send(`${e}`);
                 }
 
                 await page.waitForNavigation({

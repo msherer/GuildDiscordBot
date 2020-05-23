@@ -53,10 +53,14 @@ class Logger {
         }
     }
 
-    log(messenger, cmd, message) {
+    log(messenger, cmd, message, err = '') {
         let channel = messenger.guild.channels.cache.find(c => c.name.toLowerCase() === 'gdb-logs');
         let lastChannel = messenger.guild.channels.cache.get(messenger.member.lastMessageChannelID);
         var chMessage = `----------------\nChannel: ${lastChannel}\nUser: ${messenger.member.displayName}\nCommand: ${cmd}\n${message.split('%20').join(' ')}`;
+
+        if (err !== '') {
+            chMessage += `\n${err}`;
+        }
 
         try {
             channel.send(chMessage);

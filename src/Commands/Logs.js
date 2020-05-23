@@ -82,7 +82,7 @@ class Logs extends Command
                             return {left: x, top: y, width, height, id: element.id};
                         }, selector);
 
-                        var dir = `images/${reportId}`;
+                        var dir = `images/${reportId}/${reportType}`;
                         if (!fs.existsSync(dir)) { fs.mkdirSync(dir); }
                         if (!rect) { throw Error(`Could not find element that matches selector: ${selector}.`); }
 

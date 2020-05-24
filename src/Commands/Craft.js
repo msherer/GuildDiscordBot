@@ -91,7 +91,7 @@ class Craft extends Command {
         };
     }
 
-    getMatchingWithoutImage(msg, results) {
+    getMatchingWithoutImage(results) {
         let response = {
             "crafters": "",
             "files": false

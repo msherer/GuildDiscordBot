@@ -29,7 +29,7 @@ class Craft extends Command {
             console.log("----------------");
 
             if (matchingResults.length === 1) {
-                response = this.getMatchingImage(matchingResults);
+                response = this.getMatchingImage(msg, matchingResults);
             } else {
                 response = this.getMatchingWithoutImage(matchingResults);
             }
@@ -46,49 +46,52 @@ class Craft extends Command {
 
     getCraftResults(results) {
         var crafterConfig = this.dependencies.craft;
-        const keywords = ['Formula', 'Plans', 'Recipe', 'Pattern', 'Schematic'];
+        const keywords = ['Enchant', 'Plans', 'Recipe', 'Pattern', 'Schematic'];
         let craftables = [];
 
         Object.keys(results).forEach(function (key) {
-            if (results[key].type === 3) {
-                console.log(results[key]);
                 keywords.forEach(keyword => {
-                    if (results[key].name.includes(keyword)) {
-                        var n = results[key].name;
-                        var str = keyword.toLowerCase();
-                        var recipes = crafterConfig[str];
-                        let crafters = '';
-
-                        console.log("----------------");
-                        console.log("RECIPIES:");
-                        console.log(recipes);
-                        if (recipes !== undefined && recipes.length !== 0) {
-                            recipes.forEach(recipe => {
-                                if (recipe[n]) {
-                                    console.log("----------------");
-                                    console.log("RECIPE:");
-                                    console.log(recipe);
-                                    console.log("----------------");
-                                    console.log(recipe[n]);
-                                    console.log("----------------");
-                                    crafters += recipe[n] + " ";
-                                }
-                            });
-                        }
-
-                        craftables.push({
-                            result: results[key],
-                            crafters: crafters
-                        });
+                    if (results[key].name.startsWith('Enchant') && keyword === 'Enchant' && results[key].type === 6) {
+                        craftables.push(this.findRecipeMatches(results[key], keyword, crafterConfig));
+                    } else if (keyword !== 'Enchant' && results[key].name.startsWith(keyword) && results[key].type === 3) {
+                        craftables.push(this.findRecipeMatches(results[key], keyword, crafterConfig));
                     }
                 });
-            }
-        });
+        }, this);
 
         return craftables;
     }
 
-    getMatchingWithoutImage(results) {
+    findRecipeMatches(result, keyword, crafterConfig) {
+        var n = result.name;
+        var str = keyword.toLowerCase();
+        var recipes = crafterConfig[str];
+        let crafters = '';
+
+        console.log("----------------");
+        console.log("RECIPIES:");
+        console.log(recipes);
+        if (recipes !== undefined && recipes.length !== 0) {
+            recipes.forEach(recipe => {
+                if (recipe[n]) {
+                    console.log("----------------");
+                    console.log("RECIPE:");
+                    console.log(recipe);
+                    console.log("----------------");
+                    console.log(recipe[n]);
+                    console.log("----------------");
+                    crafters += recipe[n] + " ";
+                }
+            });
+        }
+
+        return {
+            result: result,
+            crafters: crafters
+        };
+    }
+
+    getMatchingWithoutImage(msg, results) {
         let response = {
             "crafters": "",
             "files": false
@@ -102,14 +105,15 @@ class Craft extends Command {
         return response;
     }
 
-    getMatchingImage(results) {
+    // Temporarily passing in message client until I can figure out the scoping issue with this async function
+    getMatchingImage(msg, results) {
         let response = {
             "crafters": "",
             "files": false
         };
         const result = results[0];
         var existingFile = 'images/' + result.result.id + '.png';
-        
+
         if (!fs.existsSync(existingFile)) {
             console.log('File does not exist, creating...');
             (async () => {
@@ -125,7 +129,7 @@ class Craft extends Command {
                 });
                 await page.setDefaultNavigationTimeout(0);
                 await page.goto(
-                    'https://classic.wowhead.com/item=' + result.result.id,
+                    `https://classic.wowhead.com/${result.result.typeName.toLowerCase()}=${result.result.id}`,
                     {"waitUntil": "domcontentloaded"}
                 );
 
@@ -177,6 +181,7 @@ class Craft extends Command {
 
                 response.crafters = `${result.result.name}\nCrafters: ${c}`
                 response.files = `images/${result.result.id}.png`;
+                msg.channel.send(response.crafters, {files: [response.files]});
             })();
         } else {
             const c = result.crafters.trim() !== '' ? result.crafters.trim() : 'None';

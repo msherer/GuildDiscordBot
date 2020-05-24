@@ -12,30 +12,92 @@
     }
   ],
   "recipe": [
-    {
-      "wisdom": [
-        "Bjutters"
-      ]
-    },
-    {
-      "mongoose": [
-        "Bjutters",
-        "Lightbulb"
-      ]
-    }
+    { "Recipe: Elixir of Greater Agility": [ "Bjutters, Sigarda" ] },
+    { "Recipe: Elixir of Giants": [ "Bjutters" ] },
+    { "Recipe: Elixir of Superior Defense": [ "Bjutters, Sigarda" ] },
+    { "Recipe: Major Troll's Blood Potion": [ "Bjutters" ] },
+    { "Recipe: Mighty Rage Potion": [ "Bjutters" ] },
+    { "Recipe: Greater Arcane Elixir": [ "Bjutters" ] },
+    { "Recipe: Elixir of Shadow  Power": [ "Bjutters" ] },
+    { "Recipe: Elixir of Greater Firepower": [ "Bjutters" ] },
+    { "Recipe: Elixir of Frost Power": [ "Bjutters" ] },
+    { "Recipe: Mageblood Potion": [ "Bjutters, Sigarda" ] },
+    { "Recipe: Greater Arcane Protection Potion": [ "Bjutters" ] },
+    { "Recipe: Greater Fire Protection Potion": [ "Bjutters" ] },
+    { "Recipe: Greater Shadow Protection Potion": [ "Bjutters" ] },
+    { "Recipe: Greater Nature Protection Potion": [ "Bjutters" ] },
+    { "Recipe: Greater Frost Protection Potion": [ "Bjutters" ] },
+    { "Recipe: Fire Protection Potion": [ "Bjutters" ] },
+    { "Recipe: Shadow Protection Potion": [ "Bjutters" ] },
+    { "Recipe: Nature Protection Potion": [ "Bjutters" ] },
+    { "Recipe: Frost Protection Potion": [ "Bjutters" ] },
+    { "Recipe: Elixir of Fortitude": [ "Bjutters" ] },
+    { "Recipe: Free Action Potion": [ "Bjutters, Sigarda" ] },
+    { "Recipe: Limited Invulnerability Potion": [ "Bjutters" ] },
+    { "Recipe: Restorative Potion": [ "Bjutters" ] },
+    { "Recipe: Elixir of Poison Resistance": [ "Bjutters" ] },
+    { "Recipe: Invisibility Potion": [ "Bjutters" ] },
+    { "Recipe: Greater Stoneshield Potion": [ "Bjutters" ] },
+    { "Recipe: Living Action Potion": [ "Bjutters" ] },
+    { "Recipe: Major Healing Potion": [ "Bjutters" ] },
+    { "Recipe: Major Mana Potion": [ "Bjutters, Sigarda" ] },
+    { "Recipe: Major Rejuvenation Potion": [ "Bjutters, Sigarda" ] },
+    { "Recipe: Superior Healing Potion": [ "Bjutters" ] },
+    { "Recipe: Superior Mana Potion": [ "Bjutters, Sigarda" ] },
+    { "Recipe: Flask of Chromatic Resistance": [ "Bjutters" ] },
+    { "Recipe: Flask of Supreme Power": [ "Bjutters" ] },
+    { "Recipe: Flask of the Titans": [ "Bjutters" ] },
+    { "Recipe: Flask of Petrification": [ "Bjutters" ] },
+    { "Recipe: Flask of Distilled Wisdom": [ "Bjutters" ] },
+    { "Recipe: Gift of Arthas": [ "Bjutters" ] },
+    { "Recipe: Magic Resistance Potion": [ "Bjutters" ] },
+    { "Recipe: Frost Oil": [ "Bjutters" ] },
+    { "Recipe: Shadow Oil": [ "Bjutters" ] },
+    { "Recipe: Swiftness Potion": [ "Bjutters" ] },
+    { "Recipe: Gurubashi Mojo Madness": [ "Bjutters" ] }
   ],
   "plans": [
     {
-      "bloodsoul shoulers": [
+      "bloodsoul shoulders": [
         "Remei"
       ]
     }
   ],
   "pattern": [
-      {
-        "Pattern: Bloodvine Leggings": [
-          "Com"
-        ]
-      }
+    {
+      "Pattern: Bloodvine Leggings": [
+        "Com, Rancidmage"
+      ]
+    },
+    {
+      "Pattern: Bloodvine Vest": [
+        "Com"
+      ]
+    },
+    {
+      "Pattern: Bloodvine Boots": [
+        "Com, Rancidmage"
+      ]
+    },
+    {
+      "Pattern: Cindercloth Cape": [
+        "Com"
+      ]
+    },
+    {
+      "Pattern: Felcloth Shoulders": [
+        "Rancidmage"
+      ]
+    },
+    {
+      "Pattern: Runed Stygian Leggings": [
+        "Com"
+      ]
+    },
+    {
+      "Pattern: Flarecore Wraps": [
+        "Rancidmage"
+      ]
+    }
   ]
 }

@@ -26,6 +26,7 @@ class Logger {
                                 || role.name === "Privleged"
                                 || role.name === "GuildDiscordBot"
                                 || role.name === "Officer"
+                                || role.name === "Guild Bot"
                             ) {
                                 ch.updateOverwrite(role, { VIEW_CHANNEL: true });
                             } else {
